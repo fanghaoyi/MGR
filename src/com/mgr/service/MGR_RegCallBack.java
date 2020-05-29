@@ -3,7 +3,7 @@ package com.mgr.service;
 import com.mgr.dto.*;
 import com.sun.jna.Callback;
 
-public interface MGR_RegCallBack extends Callback {
+public interface MGR_RegCallBack{
 
 	/*客户端与服务端工作状态回调*//*server：服务端信息 status：工作状态*/
     void MGR_LinkStatusCB(MGR_ServerInfo server, int status);
@@ -29,5 +29,7 @@ public interface MGR_RegCallBack extends Callback {
 	/*获取开门记录结果回调*//*recordinfo 开门记录结构体，无为空*/
     void MGR_UnlockRecordCB(MGR_ServerInfo server, MGR_RecordListInfo recordList);
 
+	/*获取开门记录结果回调*//*result 结果为0成功，-1为时间不正确，qrcode为二维码字串（非图片数据，用户自行生成二维码），失败为空*/
+    void MGR_GetQRcodeCB(MGR_ServerInfo server, int result, char qrcode);
 
 }

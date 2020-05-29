@@ -7,10 +7,14 @@
 #include <stdlib.h>
 #include <pthread.h>
 
-#ifdef DLL_EXPORTS
-#define DLL_API __declspec(dllexport)
+#if !defined(DLL_EXPORT) && !defined(DLL_IMPORT)
+#define DLL_EXPORT
+#endif
+
+#ifdef DLL_EXPORT
+#define DLL_API __declspec(dllexport)  __stdcall
 #else
-#define DLL_API __declspec(dllimport)
+#define DLL_API __declspec(dllimport)  __stdcall
 #endif // DLL_EXPORT
 
 #ifdef __cplusplus 
