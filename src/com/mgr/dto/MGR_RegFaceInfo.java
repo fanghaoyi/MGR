@@ -1,6 +1,8 @@
 package com.mgr.dto;
 
+import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
+import com.sun.jna.ptr.IntByReference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +17,12 @@ public class MGR_RegFaceInfo extends Structure {
 	@Override
 	protected List getFieldOrder() {
 		List<String> Field = new ArrayList<String>();
+		/*Field.add("MGR_info");
+		Field.add("MGR_jpegData");
+		Field.add("MGR_jpegDataLen");
+		Field.add("MGR_jpegName");
+		Field.add("MGR_name");
+		Field.add("MGR_room");*/
 		Field.add("MGR_info");
 		Field.add("MGR_room");
 		Field.add("MGR_name");
@@ -31,68 +39,68 @@ public class MGR_RegFaceInfo extends Structure {
 	}
 
 	/*人脸信息，用户自定义*/
-	String MGR_info;
+	public Pointer MGR_info;
 
 	/*已注册卡片绑定的房间号*/
-	String MGR_room;
+	public Pointer MGR_room;
 
 	/*已注册卡片卡号，常见普通门禁卡号，身份证号*/
-	String MGR_name;
+	public Pointer MGR_name;
 
 	/*需要注册的人脸图片名字，目前限定JPG格式*/
-	String MGR_jpegName;
+	public Pointer MGR_jpegName;
 
 	/*人脸图片的数据*/
-	String MGR_jpegData;
+	public Pointer MGR_jpegData;
 
 	/*人脸图片数据的长度*/
-	int MGR_jpegDataLen;
+	public IntByReference MGR_jpegDataLen;
 
-	public String getMGR_info() {
+	public Pointer getMGR_info() {
 		return MGR_info;
 	}
 
-	public void setMGR_info(String MGR_info) {
+	public void setMGR_info(Pointer MGR_info) {
 		this.MGR_info = MGR_info;
 	}
 
-	public String getMGR_room() {
+	public Pointer getMGR_room() {
 		return MGR_room;
 	}
 
-	public void setMGR_room(String MGR_room) {
+	public void setMGR_room(Pointer MGR_room) {
 		this.MGR_room = MGR_room;
 	}
 
-	public String getMGR_name() {
+	public Pointer getMGR_name() {
 		return MGR_name;
 	}
 
-	public void setMGR_name(String MGR_name) {
+	public void setMGR_name(Pointer MGR_name) {
 		this.MGR_name = MGR_name;
 	}
 
-	public String getMGR_jpegName() {
+	public Pointer getMGR_jpegName() {
 		return MGR_jpegName;
 	}
 
-	public void setMGR_jpegName(String MGR_jpegName) {
+	public void setMGR_jpegName(Pointer MGR_jpegName) {
 		this.MGR_jpegName = MGR_jpegName;
 	}
 
-	public String getMGR_jpegData() {
+	public Pointer getMGR_jpegData() {
 		return MGR_jpegData;
 	}
 
-	public void setMGR_jpegData(String MGR_jpegData) {
+	public void setMGR_jpegData(Pointer MGR_jpegData) {
 		this.MGR_jpegData = MGR_jpegData;
 	}
 
-	public int getMGR_jpegDataLen() {
+	public IntByReference getMGR_jpegDataLen() {
 		return MGR_jpegDataLen;
 	}
 
-	public void setMGR_jpegDataLen(int MGR_jpegDataLen) {
+	public void setMGR_jpegDataLen(IntByReference MGR_jpegDataLen) {
 		this.MGR_jpegDataLen = MGR_jpegDataLen;
 	}
 }

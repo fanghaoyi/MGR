@@ -1,6 +1,7 @@
 package com.mgr.dto;
 
 import com.sun.jna.Structure;
+import com.sun.jna.ptr.IntByReference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,16 +28,16 @@ public class MGR_FailListInfo extends Structure {
 	}
 
 	/*失败信息的个数*/
-	int MGR_failCount;
+	public IntByReference MGR_failCount;
 
 	/*失败信息单位列表，用户使用时自行申请空间*/
-	MGR_FailNodeInfo MGR_failList;
+	public MGR_FailNodeInfo MGR_failList;
 
-	public int getMGR_failCount() {
+	public IntByReference getMGR_failCount() {
 		return MGR_failCount;
 	}
 
-	public void setMGR_failCount(int MGR_failCount) {
+	public void setMGR_failCount(IntByReference MGR_failCount) {
 		this.MGR_failCount = MGR_failCount;
 	}
 

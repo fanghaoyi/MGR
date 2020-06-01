@@ -56,4 +56,7 @@ public interface JnaLibrary extends Library {
 	//获取服务端的开门记录，server：服务端，结果由回调返回，部分服务端可能不返回
 	int MGR_SendReqUnlockRecord(MGR_ServerInfo server);
 
+	//获取开门二维码，server：服务端，结果由回调返回
+	int MGR_SendReqGetQRcode(MGR_ServerInfo server, MGR_GetQRcodeInfo getQRcode);
+
 }

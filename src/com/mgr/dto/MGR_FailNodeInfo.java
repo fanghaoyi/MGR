@@ -27,9 +27,9 @@ public class MGR_FailNodeInfo extends Structure {
 	}
 
 	/*属性为卡片：0-cardNum 1-roomNum 属性为人脸：0-cardNum 1-groupId*/
-	String[][] MGR_attrName;
+	public String[][] MGR_attrName;
 	/*失败原因，用户可忽略判断类型，小于0 即失败*/
-	char MGR_reason;
+	public byte MGR_reason;
 
 	public String[][] getMGR_attrName() {
 		return MGR_attrName;
@@ -39,11 +39,11 @@ public class MGR_FailNodeInfo extends Structure {
 		this.MGR_attrName = MGR_attrName;
 	}
 
-	public char getMGR_reason() {
+	public byte getMGR_reason() {
 		return MGR_reason;
 	}
 
-	public void setMGR_reason(char MGR_reason) {
+	public void setMGR_reason(byte MGR_reason) {
 		this.MGR_reason = MGR_reason;
 	}
 }

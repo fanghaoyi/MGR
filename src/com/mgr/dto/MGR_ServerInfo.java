@@ -1,6 +1,9 @@
 package com.mgr.dto;
 
+import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
+import com.sun.jna.ptr.ByteByReference;
+import com.sun.jna.ptr.IntByReference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,16 +32,16 @@ public class MGR_ServerInfo extends Structure {
 	}
 
 	/*服务器状态信息，请根据状态回调的参数进行更新*/
-	public int MGR_serverOnline;
+	public IntByReference MGR_serverOnline;
 
 	/*服务器连接的socket通道号，用户不可修改*/
-	public int MGR_serverSock;
+	public IntByReference MGR_serverSock;
 
 	/*服务器IP地址，用户自行填充*/
-	public String MGR_serverIpAddr;
+	public Pointer MGR_serverIpAddr;
 
 	/*服务器地址码，用户根据配置表自行填充。例如2010101010101*/
-	public String MGR_serverDoorCode;
+	public Pointer MGR_serverDoorCode;
 
 	/*以下参数为连接内部调用参数，用户无需理会*/
 	/*MGR_ThreadInfo MGR_MsgThread;
@@ -46,35 +49,35 @@ public class MGR_ServerInfo extends Structure {
 	MGR_FaceRecvInfo MGR_faceRecvInfo;
 	MGR_RecordRecvInfo MGR_recordRecvInfo;*/
 
-	public int getMGR_serverOnline() {
+	public IntByReference getMGR_serverOnline() {
 		return MGR_serverOnline;
 	}
 
-	public void setMGR_serverOnline(int MGR_serverOnline) {
+	public void setMGR_serverOnline(IntByReference MGR_serverOnline) {
 		this.MGR_serverOnline = MGR_serverOnline;
 	}
 
-	public int getMGR_serverSock() {
+	public IntByReference getMGR_serverSock() {
 		return MGR_serverSock;
 	}
 
-	public void setMGR_serverSock(int MGR_serverSock) {
+	public void setMGR_serverSock(IntByReference MGR_serverSock) {
 		this.MGR_serverSock = MGR_serverSock;
 	}
 
-	public String getMGR_serverIpAddr() {
+	public Pointer getMGR_serverIpAddr() {
 		return MGR_serverIpAddr;
 	}
 
-	public void setMGR_serverIpAddr(String MGR_serverIpAddr) {
+	public void setMGR_serverIpAddr(Pointer MGR_serverIpAddr) {
 		this.MGR_serverIpAddr = MGR_serverIpAddr;
 	}
 
-	public String getMGR_serverDoorCode() {
+	public Pointer getMGR_serverDoorCode() {
 		return MGR_serverDoorCode;
 	}
 
-	public void setMGR_serverDoorCode(String MGR_serverDoorCode) {
+	public void setMGR_serverDoorCode(Pointer MGR_serverDoorCode) {
 		this.MGR_serverDoorCode = MGR_serverDoorCode;
 	}
 
