@@ -1,11 +1,31 @@
 package com.mgr.dto;
 
+import com.sun.jna.Structure;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * create :fanghaoyi
  * date: 2020/5/22
  * describe: 卡片信息
  */
-public class MGR_GetQRcodeInfo {
+public class MGR_GetQRcodeInfo extends Structure {
+
+	@Override
+	protected List getFieldOrder() {
+		List<String> Field = new ArrayList<String>();
+		Field.add("MGR_vaildCount");
+		Field.add("MGR_vaildTime");
+		Field.add("MGR_userRoom");
+		return Field;
+	}
+
+	public static class ByReference extends MGR_GetQRcodeInfo implements Structure.ByReference{
+	}
+
+	public static class ByValue extends MGR_GetQRcodeInfo implements Structure.ByValue{
+	}
 
 	/*可用次数，1-255*/
 	int MGR_vaildCount;

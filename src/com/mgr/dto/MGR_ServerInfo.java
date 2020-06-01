@@ -1,11 +1,32 @@
 package com.mgr.dto;
 
+import com.sun.jna.Structure;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * create :fanghaoyi
  * date: 2020/5/22
  * describe: 新建服务器信息
  */
-public class MGR_ServerInfo {
+public class MGR_ServerInfo extends Structure {
+
+	@Override
+	protected List getFieldOrder() {
+		List<String> Field = new ArrayList<String>();
+		Field.add("MGR_serverOnline");
+		Field.add("MGR_serverSock");
+		Field.add("MGR_serverIpAddr");
+		Field.add("MGR_serverDoorCode");
+		return Field;
+	}
+
+	public static class ByReference extends MGR_ServerInfo implements Structure.ByReference{
+	}
+
+	public static class ByValue extends MGR_ServerInfo implements Structure.ByValue{
+	}
 
 	/*服务器状态信息，请根据状态回调的参数进行更新*/
 	public int MGR_serverOnline;
@@ -56,6 +77,9 @@ public class MGR_ServerInfo {
 	public void setMGR_serverDoorCode(String MGR_serverDoorCode) {
 		this.MGR_serverDoorCode = MGR_serverDoorCode;
 	}
+
+
+
 /*
 	public MGR_ThreadInfo getMGR_MsgThread() {
 		return MGR_MsgThread;

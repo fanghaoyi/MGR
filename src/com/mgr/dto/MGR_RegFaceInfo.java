@@ -1,11 +1,34 @@
 package com.mgr.dto;
 
+import com.sun.jna.Structure;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * create :fanghaoyi
  * date: 2020/5/22
  * describe: 人脸注册信息，注册时需要绑定已注册卡片
  */
-public class MGR_RegFaceInfo {
+public class MGR_RegFaceInfo extends Structure {
+
+	@Override
+	protected List getFieldOrder() {
+		List<String> Field = new ArrayList<String>();
+		Field.add("MGR_info");
+		Field.add("MGR_room");
+		Field.add("MGR_name");
+		Field.add("MGR_jpegName");
+		Field.add("MGR_jpegData");
+		Field.add("MGR_jpegDataLen");
+		return Field;
+	}
+
+	public static class ByReference extends MGR_RegFaceInfo implements Structure.ByReference{
+	}
+
+	public static class ByValue extends MGR_RegFaceInfo implements Structure.ByValue{
+	}
 
 	/*人脸信息，用户自定义*/
 	String MGR_info;

@@ -1,11 +1,31 @@
 package com.mgr.dto;
 
+import com.sun.jna.Structure;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * create :fanghaoyi
  * date: 2020/5/22
  * describe: 卡片信息
  */
-public class MGR_CardInfo {
+public class MGR_CardInfo extends Structure {
+	@Override
+	protected List getFieldOrder() {
+		List<String> Field = new ArrayList<String>();
+		Field.add("MGR_card");
+		Field.add("MGR_room");
+		Field.add("MGR_time");
+		Field.add("MGR_type");
+		return Field;
+	}
+
+	public static class ByReference extends MGR_CardInfo implements Structure.ByReference{
+	}
+
+	public static class ByValue extends MGR_CardInfo implements Structure.ByValue{
+	}
 
 	/*卡号，例如普通门禁卡的卡号和身份证号*/
 	String MGR_card;

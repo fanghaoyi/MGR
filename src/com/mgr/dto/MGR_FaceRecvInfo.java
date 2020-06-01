@@ -1,11 +1,31 @@
 package com.mgr.dto;
 
+import com.sun.jna.Structure;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * create :fanghaoyi
  * date: 2020/5/22
  * describe: 描述
  */
-public class MGR_FaceRecvInfo {
+public class MGR_FaceRecvInfo extends Structure {
+
+	@Override
+	protected List getFieldOrder() {
+		List<String> Field = new ArrayList<String>();
+		Field.add("MGR_recvCount");
+		Field.add("MGR_recvStart");
+		Field.add("MGR_faceList");
+		return Field;
+	}
+
+	public static class ByReference extends MGR_FaceRecvInfo implements Structure.ByReference{
+	}
+
+	public static class ByValue extends MGR_FaceRecvInfo implements Structure.ByValue{
+	}
 
 	int MGR_recvCount;
 

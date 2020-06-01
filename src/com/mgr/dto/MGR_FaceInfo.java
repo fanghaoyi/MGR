@@ -1,14 +1,39 @@
 package com.mgr.dto;
 
+import com.sun.jna.Structure;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * create :fanghaoyi
  * date: 2020/5/22
  * describe: 人脸信息
  */
-public class MGR_FaceInfo {
+public class MGR_FaceInfo extends Structure {
+
+	@Override
+	protected List getFieldOrder() {
+		List<String> Field = new ArrayList<String>();
+		Field.add("MGR_isDelete");
+		Field.add("MGR_isModify");
+		Field.add("MGR_info");
+		Field.add("MGR_gpid");
+		Field.add("MGR_name");
+		Field.add("MGR_feature");
+		Field.add("MGR_featureLen");
+		return Field;
+	}
+
+	public static class ByReference extends MGR_FaceInfo implements Structure.ByReference{
+	}
+
+	public static class ByValue extends MGR_FaceInfo implements Structure.ByValue{
+	}
 
 	/*人脸信息内部标志位，用户无需理会*/
-	int MGR_isDelete, MGR_isModify;
+	int MGR_isDelete;
+	int	MGR_isModify;
 
 	/*人脸信息，用户自定义*/
 	String MGR_info;
