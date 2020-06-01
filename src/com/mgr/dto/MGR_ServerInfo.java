@@ -8,16 +8,16 @@ package com.mgr.dto;
 public class MGR_ServerInfo {
 
 	/*服务器状态信息，请根据状态回调的参数进行更新*/
-	int MGR_serverOnline;
+	public int MGR_serverOnline;
 
 	/*服务器连接的socket通道号，用户不可修改*/
-	int MGR_serverSock;
+	public int MGR_serverSock;
 
 	/*服务器IP地址，用户自行填充*/
-	String MGR_serverIpAddr;
+	public String MGR_serverIpAddr;
 
 	/*服务器地址码，用户根据配置表自行填充。例如2010101010101*/
-	String MGR_serverDoorCode;
+	public String MGR_serverDoorCode;
 
 	/*以下参数为连接内部调用参数，用户无需理会*/
 	/*MGR_ThreadInfo MGR_MsgThread;
